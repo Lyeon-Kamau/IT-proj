@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Uvumbuzi Restaurant Ordering System</title>
+
+<style>
+.register-section{
+    min-height:75vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+    background:#f8f9fa;
+}
+
+.register-container{
+    width:100%;
+    max-width:420px;
+    background:#ffffff;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.register-container h2{
+    text-align:center;
+    margin-bottom:8px;
+    color:#333;
+}
+
+.register-container p{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#444;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:#ff6b35;
+}
+
+.register-btn{
+    width:100%;
+    padding:12px;
+    background:#ff6b35;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.register-btn:hover{
+    background:#e85d2d;
+}
+
+.form-footer{
+    text-align:center;
+    margin-top:15px;
+}
+
+.form-footer a{
+    color:#ff6b35;
+    text-decoration:none;
+}
+
+.error{
+    color:#d32f2f;
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.success{
+    color:#2e7d32;
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER (Same as Login) -->
+<header class="site-header">
+    <div class="container nav-wrapper">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">UV</span>
+            <span class="brand-text">Uvumbu</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="products.html" class="nav-link">Menu</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn btn-small login-link">Login</a>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+<section class="register-section">
+    <div class="register-container">
+        <h2>Create Account</h2>
+        <p>Join RestoOrder today</p>
+
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="text" id="email" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter phone number">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Create password">
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm password">
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+
+            <div id="message"></div>
+
+            <div class="form-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+
+        </form>
+    </div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>RestoOrder</h3>
+            <p>
+                Located in Karen, Nairobi, we provide quality meals,
+                fast service, and a smooth online ordering experience.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="products.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div>
+            <h4>Opening Hours</h4>
+            <p>Mon - Fri: 8:00 AM - 9:00 PM</p>
+            <p>Sat - Sun: 9:00 AM - 10:00 PM</p>
+        </div>
+    </div>
+
+    <p class="footer-bottom">
+        &copy; 2026 Uvumbuzi Restaurant Ordering System.
+    </p>
+</footer>
+
+<!-- JAVASCRIPT VALIDATION -->
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+    const message = document.getElementById("message");
+
+    message.innerHTML = "";
+    message.className = "";
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10,15}$/;
+
+    // Empty validation
+    if(name === "" || email === "" || phone === "" || password === "" || confirmPassword === ""){
+        message.textContent = "All fields are required.";
+        message.className = "error";
+        return;
+    }
+
+    // Name validation
+    if(name.length < 3){
+        message.textContent = "Name must be at least 3 characters.";
+        message.className = "error";
+        return;
+    }
+
+    // Email validation
+    if(!emailPattern.test(email)){
+        message.textContent = "Enter a valid email address.";
+        message.className = "error";
+        return;
+    }
+
+    // Phone validation
+    if(!phonePattern.test(phone)){
+        message.textContent = "Enter a valid phone number (10-15 digits).";
+        message.className = "error";
+        return;
+    }
+
+    // Password length
+    if(password.length < 6){
+        message.textContent = "Password must be at least 6 characters.";
+        message.className = "error";
+        return;
+    }
+
+    // Confirm password
+    if(password !== confirmPassword){
+        message.textContent = "Passwords do not match.";
+        message.className = "error";
+        return;
+    }
+
+    message.textContent = "Registration successful!";
+    message.className = "success";
+});
+</script>
+
+</body>
+</html>

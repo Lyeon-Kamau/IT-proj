@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<title>Login - Uvumbuzi Ordering System</title>
+</head>
+<body>
+<header class="site-header">
+	<div class="container nav-wrapper">
+		<a href="index.html" class="brand" title="Restaurant Ordering System">
+			<span class="brand-icon">U</span>
+			<span class="brand-text">VUMBUZI</span>
+		</a>
+		<nav class="main-nav" aria-label="The navigation">
+			<a href="index.html" class="nav-link">Home</a>
+			<a href="about.html" class="nav-link">About</a>
+			<a href="products.html" class="nav-link">Products</a>
+			<a href="contact.html" class="nav-link">Contact</a>
+			<a href="products.html" class="nav-link order-count">
+				Order Count: <span id="orderCount">0</span>
+			</a>
+			<a href="login.html" class="btn btn-login active">Login</a>
+		</nav>
+	</div>
+</header>
+
+<main>
+	<section class="login-section">
+		<div class="login-container">
+			<div class="login-header">
+				<h2>Welcome Back</h2>
+				<p>Login to your Uvumbuzi account</p>
+			</div>
+
+			<form id="loginForm" class="login-form">
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input type="email" id="email" name="email" placeholder="Enter your email" required>
+				</div>
+
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" placeholder="Enter your password" required>
+				</div>
+
+				<div class="form-checkbox">
+					<input type="checkbox" id="remember" name="remember">
+					<label for="remember">Remember me</label>
+				</div>
+
+				<button type="submit" class="btn btn-primary login-btn">
+					Login
+				</button>
+
+				<div id="message" class="message"></div>
+
+				<div class="form-divider">
+					<span>or</span>
+				</div>
+
+				<div class="form-footer">
+					<p>Don't have an account? <a href="register.html" class="link-primary">Register here</a></p>
+					<p><a href="#" class="link-primary">Forgot your password?</a></p>
+				</div>
+			</form>
+		</div>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section">
+				<h4>About Uvumbuzi</h4>
+				<p>We are committed to revolutionizing the restaurant ordering and inventory management experience across East and Central Africa.</p>
+			</div>
+			<div class="footer-section">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="products.html">Products</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h4>Contact Info</h4>
+				<ul>
+					<li>📍 Nairobi, Kenya</li>
+					<li>📞 +254 (0) 123 456 789</li>
+					<li>✉️ info@uvumbuzi.com</li>
+					<li>⏰ Open 24/7</li>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<h4>Follow Us</h4>
+				<div class="social-links">
+					<a href="#" class="social-link">Facebook</a>
+					<a href="#" class="social-link">Twitter</a>
+					<a href="#" class="social-link">Instagram</a>
+					<a href="#" class="social-link">LinkedIn</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2024 Uvumbuzi Restaurant Ordering System. All rights reserved.</p>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
